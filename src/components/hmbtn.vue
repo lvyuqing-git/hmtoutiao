@@ -1,13 +1,19 @@
 <template>
   <div class="btn"
-       :class="{red:type==='red'}">
+       :class="{red:type==='red'}"
+       @click="btnclick">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['type']
+  props: ['type'],
+  methods: {
+    btnclick () {
+      this.$emit('click')
+    }
+  }
 }
 </script>
 

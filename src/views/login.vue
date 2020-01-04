@@ -13,7 +13,8 @@
         没有账号？
         <a href="#/register"
            class="">去注册</a></p>
-      <mhbtn type='red'>登录</mhbtn>
+      <mhbtn type='red'
+             @click="btnclick">登录</mhbtn>
     </div>
   </div>
 </template>
@@ -36,6 +37,10 @@ export default {
   methods: {
     inputfn (data) {
       this.user.username = data
+    },
+    btnclick () {
+      console.log('点击了');
+
     }
   }
 }
