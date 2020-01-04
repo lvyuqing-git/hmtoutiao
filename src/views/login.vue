@@ -5,9 +5,15 @@
       <div class="logo"><span class="iconfont iconnew"></span></div>
       <div class="inputs">
         <hminput v-model="user.username"
-                 type='text'></hminput>
+                 type='text'
+                 :rule='/^(\d{5,6})$|^(1\d{10})$/'
+                 placeholder="手机号/用户名"
+                 msg='请输入正确格式的用户名或手机号'></hminput>
         <hminput v-model="user.password"
-                 type='password'></hminput>
+                 type='password'
+                 :rule='/^\S{3,16}$/'
+                 placeholder="请输入密码"
+                 msg='请输入正确格式的密码'></hminput>
       </div>
       <p class="tips">
         没有账号？
