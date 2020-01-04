@@ -49,9 +49,10 @@ export default {
     async btnclick () {
       if (/^(\d{5,6})$|^(1\d{10})$/.test(this.user.username) && /^\S{3,16}$/.test(this.user.password)) {
         let res = await login(this.user)
-        console.log(res);
         if (res.data.message == "登录成功") {
-          console.log('登录成功');
+          localStorage.setItem('user_token', res.data.data.token)
+          localStorage.setItem('user', JSON.stringify(res.data.data.user))
+          this.$router.push({ name: 'Personal' })
 
         }
 
