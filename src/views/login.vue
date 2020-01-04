@@ -28,6 +28,8 @@
 <script>
 import mhbtn from '@/components/hmbtn.vue'
 import hminput from '@/components/hminput.vue'
+import { login } from '@/apis/userapis.js'
+
 export default {
   components: {
     mhbtn, hminput
@@ -44,8 +46,17 @@ export default {
     inputfn (data) {
       this.user.username = data
     },
-    btnclick () {
-      console.log('点击了');
+    async btnclick () {
+      if (/^(\d{5,6})$|^(1\d{10})$/.test(this.user.username) && /^\S{3,16}$/.test(this.user.password)) {
+        let res = await login(this.user)
+        console.log(res);
+        if (res.data.message == "登录成功") {
+          console.log('登录成功');
+
+        }
+
+      }
+
 
     }
   }
