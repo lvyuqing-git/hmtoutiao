@@ -13,15 +13,17 @@
         没有账号？
         <a href="#/register"
            class="">去注册</a></p>
-      <div data-v-4bc01e24=""
-           class="button">登录按钮</div>
+      <mhbtn type='red'>登录</mhbtn>
     </div>
   </div>
 </template>
 
 <script>
+import mhbtn from '@/components/hmbtn.vue'
 export default {
-
+  components: {
+    mhbtn
+  }
 }
 </script>
 
